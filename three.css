@@ -1,0 +1,105 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+ 
+    
+}
+body{
+    background-color: rgb(38,48,40);
+}
+.header{
+
+ 
+    position: relative;
+   top: 340px;
+   left: 580px;
+    width: 100px;
+    height: 100px;
+   
+ 
+}
+.header .main{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 50%;
+    background-color: black;
+}
+.header .main a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: rgb(133, 2, 133);
+    position: relative;
+    border-radius: 50%;
+}
+.header .main a i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    transform: translate(-50%,-50%);
+}
+.header .fold{
+position: absolute;
+
+top: 0;
+left: 99%;
+height: 100px;
+
+width: 0px;
+overflow: hidden;
+background-color: black;
+border-radius: 0px 50px 50px 0px;
+transition: all 0.5s;
+}
+.header .fold a{
+    display: inline-block;
+   
+    text-decoration: none;
+    color: rgb(133, 2, 133);
+    position: relative;
+    height: 100%;
+    width: 20%;
+    border-radius: 30%;
+}
+.header .fold a i{
+    font-size: 50px;
+    margin: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+a:hover i{
+  color: rgb(78, 3, 78);
+}
+
+.portfolio{
+    text-decoration: none;
+    font-size: 35px;
+    display: block;
+    font-family: cursive;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.portfolio::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 3px solid white;
+    height: 100%;
+    transition: all 0.5s;
+    width: 0%;
+}
+.portfolio:hover{
+    color: white;
+}
+.portfolio:hover::after{
+    width: 100%;
+}

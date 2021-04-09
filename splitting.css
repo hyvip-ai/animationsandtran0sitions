@@ -1,0 +1,226 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(11, 11, 46);
+}
+ div{
+   /* border: 3px solid black; */
+   padding-top: 300px;
+   text-align: center;
+   font-size: 50px;
+   font-weight: bold;
+   font-family: cursive;
+   font-style: oblique;
+   color: white;
+   /* margin: 20px auto; */
+   /* border: 2px solid white; */
+   
+}
+
+.splitting {
+    cursor: pointer;
+  }
+  
+
+
+  .bounce-it .word .char {
+    line-height: 1;
+    transform-origin: center bottom;
+    /* animation-name: bounce-end; */
+    animation-timing-function: cubic-bezier(.77,.02,.11,.97);
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-delay: calc(0.05s * var(--char-index) );
+    animation-duration: calc( 0.2s + ( 0.03s * var(--char-total)) );
+  }
+
+  .bounce-it:hover .char {
+
+    animation-name: bounce-char;
+  }
+  
+  @keyframes bounce-end {
+    to { transform: translateY(0%) scale(1); }
+  }
+  
+  @keyframes bounce-char {
+    20% { transform: translateY(0%) scale(1.3, .8); }
+    70% { transform: translateY(-40%) scale(.8, 1.2); }
+  }
+  
+  .glitch-it .word .char:before,
+  .glitch-it .word .char:after {
+       visibility: visible;
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition-property: opacity;
+    animation-name: glitch-anim, glitch-bounce;
+    animation-play-state: paused;
+  }
+
+  .glitch-it .word .char:before {
+    color: #F85959;
+    animation-delay: calc( -0.02s * var(--char-index) );
+  }
+
+  .glitch-it .word .char:after {
+    color: #B7F5DE; 
+    animation-delay: calc( -.5s * var(--char-index) );
+  }
+  .glitch-it:hover .char { color: rgba(255,255,255,0.3); animation-name: glitch-bounce; }
+  .glitch-it:hover .char:before,
+  .glitch-it:hover .char:after { opacity: 1; animation-play-state: running; }
+  .glitch-it .char,
+  .glitch-it .char:before,
+  .glitch-it .char:after {
+    transition: color 0.2s linear;
+    animation-duration: 0.6s, 0.4s;
+
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1);
+    animation-delay: calc( -0.1s * var(--char-index) );
+  }
+  
+  @keyframes glitch-bounce {
+    20% { transform: translate(-1%,0%); }
+    40% { transform: translate(14%,-2%); }
+    50% { transform: translate(-5%,5%); }
+    65% { transform: translate(1%,-2%); }
+    80% { transform: translate(-3%,2%); }
+  }
+  
+  @keyframes glitch-anim {
+    0% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); }
+    20% { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
+    40% { clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%); }
+    60% { clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%); }
+    80% { clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%); }
+    100% { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+  }
+  
+
+
+
+    .pop-out-color .word .char {
+      color: #000;
+      animation-timing-function: cubic-bezier(.5,0,.5,1), linear;
+      animation-iteration-count: infinite;
+      animation-duration: calc( 0.08s * calc( var(--char-total) ) );
+      animation-delay: calc( 0.08s * var(--char-index) );
+  
+
+    }
+    .pop-out-color .word .char::before,
+    .pop-out-color .word .char::after {
+      visibility: visible;
+      color: #FFF;
+      z-index: 1;
+      animation: inherit;
+    }
+
+    .pop-out-color .word .char::after {
+      color: #FFF;
+      z-index: 2;
+    }
+  
+    .pop-out-color:hover .char { animation-name: color-cycle; }
+    .pop-out-color:hover .char:after { animation-name: pop-char-out }
+    .pop-out-color:hover .char:before { animation-name: pop-char-out2, color-cycle; }
+  
+  
+  @keyframes pop-char-out2 {
+    0%, 70%, 100% { transform: translate(0em, 0em); }
+    35% { transform: translate( 0.025em, -0.05em); } 
+  }
+  @keyframes pop-char-out {
+    0%, 70%, 100% { transform: translate(0em, 0em); }
+    35% { transform: translate( 0.05em, -0.1em); } 
+  }
+  @keyframes color-cycle {
+    25% { color: #FEFF89 }
+    50% { color: #FF9F68 }
+    75% { color: #F85959 }
+    100% { color: #AC005D }
+  }
+
+
+ 
+
+
+    .split-it .word .char { color: #00C9B1; } 
+
+
+
+    .split-it .word .char,
+    .split-it .word .char::before,
+    .split-it .word .char::after {
+    transition: transform 0.8s cubic-bezier(.75,0,.25,1);
+    transition-delay: calc( 0.2s * var(--distance-percent) );
+  }
+
+  .split-it .word .char::before,
+  .split-it .word .char::after {
+      visibility: visible;
+    color: #FFF;
+  }
+
+  .split-it .word .char::before {
+    clip-path: polygon(0 0, 100% 0, 100% 54%, 0 54%);
+  }
+
+  .split-it .word .char::after {
+    clip-path: polygon(0 46%, 100% 46%, 100% 100%, 0 100%);
+  }
+
+  .split-it:hover .char:before { transform: translateY(-45%) scaleY(0); }
+  .split-it:hover .char:after { transform: translateY(45%) scaleY(0); }
+    
+
+
+  .spread-out .char {
+    transition: transform 1s cubic-bezier(.8,0,.2,1);
+    transition-delay: calc( 0.2s * var(--distance-percent) );
+  }
+  
+  .spread-out:hover .char {
+    transition-delay: calc( 0.2s * ( 1 - var(--distance-percent) ) );
+    transform: scale(0.6) translateX( calc(1.25em * var(--distance-sine)) );
+  }
+  
+  
+  .pull-in .char {
+    transition: transform 1s cubic-bezier(.8,0,.2,1);
+    transition-delay: calc( 0.2s * ( 1 - var(--distance-percent) ) );
+  }
+  .pull-in:hover .char {
+    transition-delay: calc( 0.2s * var(--distance-percent) );
+    transform: scale(0.5) translateX( calc(-1.5em * var(--distance-sine)) );
+  }
+  
+a{
+  
+  display: inline-block;
+  margin:50px auto;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: cursive;
+  font-weight: bold;
+  position: relative;
+}
+a::after{
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  border-bottom: 2px solid white;
+  transition: all 0.5s;
+}
+a:hover::after{
+  width: 100%;
+}
+  

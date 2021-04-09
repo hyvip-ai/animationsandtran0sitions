@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#polaroid {
+   
+    width: 400px;
+    height: 320px;
+    stroke: rgb(12, 192, 132);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    fill:transparent;
+    display: block;
+    margin: 50px auto;
+}
+.viv{
+    display: block;
+    margin: 20px auto;
+}
+
+svg #big{
+    width: 100%;
+    visibility: hidden;
+
+}
+.mor{
+    margin: 20px;
+}
